@@ -1,0 +1,10 @@
+// Shared build settings. No secrets in this file. It is checked in.
+// Local values live in Secrets.xcconfig, which is gitignored.
+// Copy Secrets.xcconfig.example to Secrets.xcconfig and fill it in.
+
+PRODUCT_BUNDLE_IDENTIFIER = com.sankofaseven.meridian
+MARKETING_VERSION = 0.1.0
+CURRENT_PROJECT_VERSION = 1
+IPHONEOS_DEPLOYMENT_TARGET = 17.0
+
+#include? "Secrets.xcconfig"

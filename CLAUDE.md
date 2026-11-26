@@ -80,3 +80,13 @@ Out of scope for MVP:
 - Write unit tests for view models and edge functions as you go.
 - Never commit secrets. Use `.xcconfig` files that are gitignored, plus a checked-in `.xcconfig.example`.
 - After each task, list what you built, what you skipped, and anything I must do by hand in Xcode or Supabase.
+
+## Project notes
+
+- Open `Meridian.xcodeproj` in Xcode 16 or later. The `Meridian` and `MeridianTests` folders are synchronized: files added on disk join the target with no project file edits.
+- No physical Info.plist. Info.plist keys are set as `INFOPLIST_KEY_` build settings.
+- Build settings shared by everyone live in `Config/Base.xcconfig` (checked in, no secrets). Local values live in `Config/Secrets.xcconfig` (gitignored), copied from `Config/Secrets.xcconfig.example`.
+- Fonts are registered at launch by `FontRegistrar`, not through Info.plist. The six .ttf files are fixed-weight cuts of the Google Fonts variable files (Bodoni Moda at 24pt optical size).
+- Archivo has no small-caps glyphs. Labels are set in tracked capitals through `meridianLabel()`.
+- Use `Palette`, `Typography`, `Motion`, `SectionRule` and `RowRule`. Do not hardcode colours, fonts or durations in screens.
+- Screens use `ScreenViewModel` and `ScreenStateView` for loading, empty, error and loaded states. Wrap network calls in `withTimeout` and map errors with `UserMessage`.

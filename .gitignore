@@ -1,6 +1,7 @@
 # Secrets
 *.xcconfig
 !*.xcconfig.example
+!Config/Base.xcconfig
 .env
 .env.*
 !.env.example
